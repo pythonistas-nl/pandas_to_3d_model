@@ -10,6 +10,7 @@
 #       python3 -m pip install .
 #    initialise local distribution (distutils, does not pick up `install_requires`):
 #       python3 setup.py install
+# https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
 # https://python-packaging.readthedocs.io/en/latest/minimal.html
 
 import sys
