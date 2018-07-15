@@ -4,18 +4,16 @@
 # from mpl_toolkits.mplot3d import Axes3D
 # Recommended list: python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
 
-from pathlib import Path
-import os
-import uuid
-
 import matplotlib
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import numpy as numpy
-import pandas as pd
 from mpl_toolkits.mplot3d import Axes3D
 
+#import fbx
+#import fbxcube
 import config
+
 # https://matplotlib.org/users/installing.html#macos
 # xcode-select --install
 # (for subprocess32)
@@ -41,7 +39,7 @@ def to_logging(df, z_column, x_column, y_column):
     dump_dictarray_tail(da)
 
 
-def to_3dscatter(df, z_column, x_column, y_column, output_filepath, figure_filter, title=None):
+def to_3dscatter(df, z_column, x_column, y_column, output_filepath):
     logger.info('Saving 3D Scatter [{}]'.format(output_filepath))
     if Axes3D is None:
         logger.warning('Axes3D is None')
@@ -56,11 +54,32 @@ def to_3dscatter(df, z_column, x_column, y_column, output_filepath, figure_filte
     ax.scatter(x, y, zs=z)
     ax.set_xlabel(x_column)
     ax.set_ylabel(y_column)
-    if title is not None:
-        plt.title(title)
     fig.savefig(str(output_filepath))
     plt.close(fig)
     return output_filepath
+
+
+def to_fbx(df, z_column, x_column, y_column, output_filepath):
+    logger.info('Saving 3D FBX [{}]'.format(output_filepath))
+    global fbxManager
+    # sceneName = "cubeScene"
+    # if (len(sys.argv) >= 2):
+    #    sceneName = sys.argv[1]
+    # else:
+    cylinder_name = "Cylinder"
+    # if (len(sys.argv) >= 3):
+    #    cubeName = sys.argv[2]
+    fbxManager = fbx.FbxManager.Create()
+    fbx_scene = fbx.FbxScene.Create(fbxManager, '')
+    cylinder_node = fbxcube.addCylinder(fbx_scene, cylinder_name, 300.0, 100.0)
+    cylinder_material = fbxcube.makeMaterial(fbx_scene, cylinder_name + "_Material",
+                                             ambient=(1.0, 0.0, 0.0),
+                                             diffuse=(0.0, 0.0, 1.0))
+    cylinder_node.AddMaterial(cylinder_material)
+    fbxcube.saveScene(output_filepath, fbxManager, fbx_scene, True)
+    fbxManager.Destroy()
+    del fbx_scene
+    del fbxManager
 
 
 def to_dictarray(df, da):

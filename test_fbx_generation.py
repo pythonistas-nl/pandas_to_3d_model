@@ -56,19 +56,25 @@ class TestAggregation(unittest.TestCase):
         df = load_dataframe()
         assert len(df) > 0
         render.to_3dscatter(df,
-                              z_column='bollinger_cash_and_asset_value',
-                              x_column='no_of_std',
-                              y_column='lookback_period',
-                              output_filepath=output_filepath,
-                              figure_filter=file_type)
-        assert len(df) > 0
-        assert len(df) is not None
+                            z_column='bollinger_cash_and_asset_value',
+                            x_column='no_of_std',
+                            y_column='lookback_period',
+                            output_filepath=output_filepath)
+        assert output_filepath.exists()
 
     def test_generate_simple_object(self):
+        visualisation_type = 'scene_scatter'
+        file_type = '.fbx'
+        output_filepath = Path(output_path, visualisation_type).with_suffix(file_type)
         df = load_dataframe()
-        assert len(df)
-        # Inline plot for 3d scatter
-        # then split for mapplotlib and FBX
+        assert len(df) > 0
+        # render.to_3dscatter(df,
+        #                    z_column='bollinger_cash_and_asset_value',
+        #                    x_column='no_of_std',
+        #                    y_column='lookback_period',
+        #                    output_filepath=output_filepath)
+        # assert output_filepath.exists()
+
 
 
 if __name__ == '__main__':
