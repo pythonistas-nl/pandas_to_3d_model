@@ -1,0 +1,15 @@
+**/__pycache__
+**/.bash_history
+**/.cache
+**/.idea
+**/.pytest_cache
+**/.DS_Store
+**/dist
+**/deploy
+**/env
+**/idea
+**/logs
+**/scratch
+**/target
+**/tmp
+**/workspace

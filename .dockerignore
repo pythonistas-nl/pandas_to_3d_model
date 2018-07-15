@@ -1,0 +1,17 @@
+.git
+.idea
+*.iml
+.ssh
+.pip
+.cache
+README.md
+data
+dist
+deploy
+docs
+env
+examples
+logs
+target
+trusted
+workspace
