@@ -11,8 +11,8 @@ $ xcode-select --install
 $ # (for subprocess32)
 $ python3 -m pip install matplotlib
 $ # Docs say...
-$ python -mpip install -U pip
-$ python -mpip install -U matplotlib
+$ python3 -mpip install -U pip
+$ python3 -mpip install -U matplotlib
 
 ```
 
@@ -27,8 +27,8 @@ $ python3 -m pip install pandas
 
 ```shell
 $ source env/bin/activate
-$ python3 -m pip install '.'
-$ python -m unittest discover test/unit
+$ python3 -m pip install --user '.'
+$ python3 -m unittest discover '.'
 ```
 
 To avoid this:
