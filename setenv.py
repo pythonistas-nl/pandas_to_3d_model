@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# Deploy tag: optimal-bands-dist
 # Purpose: Read config and set in the environment
 # See also: https://docs.aws.amazon.com/cli/latest/topic/config-vars.html
 # Usage:

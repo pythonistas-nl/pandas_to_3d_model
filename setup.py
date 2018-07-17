@@ -25,14 +25,14 @@ if CURRENT_PYTHON < REQUIRED_PYTHON:
 
 requirements_dot_txt = Path('./requirements.txt').read_text().split('\n')
 modules = list(filter(lambda x: x and not x.startswith('#'), requirements_dot_txt))
-setup(name='Pandas to FBX',
+setup(name='Pandas to 3D model',
       version='0.0.1',
-      description='3D object (FBX) from tabular data (FBX)',
-      license='TODO private licence',
+      description='Create a 3D model from tabular data',
+      license='MIT',
       author='Antony Cartwright',
       author_email='antonyccartwright@gmail.com',
       url='https://polycode.co.uk/',
-      download_url='https://bitbucket.org/antonycc/pandas_to_fbx',
+      download_url='https://github.com/pythonistas-nl/pandas_to_3d_model',
       install_requires=modules,
       zip_safe=False,
       classifiers=[
