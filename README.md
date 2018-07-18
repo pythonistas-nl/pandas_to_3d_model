@@ -55,7 +55,17 @@ Output
 
 3D scatter plot to a Wavefront .obj:
 TODO: examples/scatter_plot_3d_object.obj
-example from https://people.sc.fsu.edu/~jburkardt/data/obj/cube.obj
+
+[all relative](examples/OBJViewer.html?fileURL=examples/cube.obj)
+
+[all relative quoted](examples/OBJViewer.html?fileURL="examples/cube.obj")
+
+[relative html, absolute obj](examples/OBJViewer.html?fileURL=https://raw.githubusercontent.com/pythonistas-nl/pandas_to_3d_model/master/examples/scatter_plot_3d_object.obj)
+
+[absolute html, absolute obj](https://kitware.github.io/vtk-js/examples/OBJViewer/OBJViewer.html?fileURL=https://raw.githubusercontent.com/pythonistas-nl/pandas_to_3d_model/master/examples/scatter_plot_3d_object.obj)
+
+
+Example from https://people.sc.fsu.edu/~jburkardt/data/obj/cube.obj
 ```shell
 # cube.obj
 # Source: https://people.sc.fsu.edu/~jburkardt/data/obj/cube.obj
