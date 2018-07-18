@@ -2,6 +2,20 @@
 # This is needed for the projections:
 # from mpl_toolkits.mplot3d import Axes3D
 # Recommended list: python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
+# >>> import matplotlib.pyplot as plt
+# >>> plt.gcf().canvas.get_supported_filetypes()
+# {
+#     'ps': 'Postscript',
+#     'eps': 'Encapsulated Postscript',
+#     'pdf': 'Portable Document Format',
+#     'pgf': 'PGF code for LaTeX',
+#     'png': 'Portable Network Graphics',
+#     'raw': 'Raw RGBA bitmap',
+#     'rgba': 'Raw RGBA bitmap',
+#     'svg': 'Scalable Vector Graphics',
+#     'svgz': 'Scalable Vector Graphics'
+# }
+
 
 import matplotlib
 

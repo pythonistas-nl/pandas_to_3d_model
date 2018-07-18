@@ -10,6 +10,7 @@
 **/env
 **/idea
 **/logs
+**/output
 **/scratch
 **/target
 **/tmp
