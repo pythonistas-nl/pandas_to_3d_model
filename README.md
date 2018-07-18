@@ -64,6 +64,7 @@ TODO: examples/scatter_plot_3d_object.obj
 
 [absolute html, absolute obj](https://kitware.github.io/vtk-js/examples/OBJViewer/OBJViewer.html?fileURL=https://raw.githubusercontent.com/pythonistas-nl/pandas_to_3d_model/master/examples/scatter_plot_3d_object.obj)
 
+[absolute html, no obj](https://kitware.github.io/vtk-js/examples/OBJViewer/OBJViewer.html)
 
 Example from https://people.sc.fsu.edu/~jburkardt/data/obj/cube.obj
 ```shell
