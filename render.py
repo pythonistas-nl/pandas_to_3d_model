@@ -1,4 +1,4 @@
-# Purpose: Common functions for data population and visualisation
+# Purpose: Utility wrappers for visualisation
 # This is needed for the projections:
 # from mpl_toolkits.mplot3d import Axes3D
 # Recommended list: python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
@@ -16,14 +16,17 @@
 #     'svgz': 'Scalable Vector Graphics'
 # }
 
-
+import sys
 import matplotlib
+import datetime
+from pathlib import Path
 
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 import config
+import shapes
 
 # https://matplotlib.org/users/installing.html#macos
 # xcode-select --install
@@ -68,6 +71,14 @@ def to_3dscatter(df, z_column, x_column, y_column, output_filepath):
     fig.savefig(str(output_filepath))
     plt.close(fig)
     return output_filepath
+
+
+def to_3dscatter_3dobject(df, z_column, x_column, y_column, output_filepath):
+    logger.info('Saving 3D Scatter Object[{}]'.format(output_filepath))
+    entry_point = Path(sys.argv[0])
+    objects = list()
+    objects.append(shapes.build_unit_cube())
+    shapes.save_as_obj(objects, output_filepath, generated_by=entry_point.name, group=output_filepath.stem)
 
 
 def to_dictarray(df, da):

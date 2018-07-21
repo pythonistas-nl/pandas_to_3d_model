@@ -6,6 +6,12 @@ Pandas to 3D Model is written in Python 3.x.
 Python 3 and libraries
 ----------------------
 
+Virtualenv:
+```shell
+$ sudo pip install virtualenv
+$ virtualenv --no-site-packages env
+```
+
 Matplotlib binary dependencies:
 https://matplotlib.org/users/installing.html#macos
 ```shell
@@ -17,12 +23,6 @@ $ python3 -mpip install -U pip
 $ python3 -mpip install -U matplotlib
 ```
 
-Virtualenv:
-```shell
-$ sudo pip install virtualenv
-```
-
-
 Pandas:
 http://pandas.pydata.org/
 ```shell
@@ -32,8 +32,10 @@ $ python3 -m pip install pandas
 Usage
 -----
 
+
+
+To run the tests (which generate output)
 ```shell
-$ virtualenv --no-site-packages env
 $ source env/bin/activate
 $ python3 -m pip install --user '.'
 $ python3 -m unittest discover '.'
@@ -56,7 +58,13 @@ Output
 3D scatter plot to a Wavefront .obj:
 TODO: examples/scatter_plot_3d_object.obj
 
-[click here and locate examples/scatter_plot_3d_object.obj in your local](https://kitware.github.io/vtk-js/examples/OBJViewer/OBJViewer.html)
+To view the .obj files
+```shell
+$ python3 -m http.server
+```
+Browse: [click the splash graphic and locate ./output/scatter_plot_3d_object.obj](http://0.0.0.0:8000/examples/OBJViewer.html)
+Browse: [not working](http://0.0.0.0:8000/examples/OBJViewer.html?fileURL=http://0.0.0.0:8000/output/scatter_plot_3d_object.obj)
+Source: https://kitware.github.io/vtk-js/examples/OBJViewer.html
 
 Example from https://people.sc.fsu.edu/~jburkardt/data/obj/cube.obj
 ```shell
@@ -124,3 +132,4 @@ More
 
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 https://polycode.co.uk
+https://people.sc.fsu.edu/~jburkardt/data/obj/obj.html

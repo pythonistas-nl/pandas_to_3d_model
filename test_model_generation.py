@@ -4,13 +4,9 @@
 #    source env/bin/activate
 #    python3 -m unittest discover .
 
-import sys
 import os
 from pathlib import Path
 import pandas as pd
-import random
-import hashlib
-import shutil
 import unittest
 
 import config
@@ -70,12 +66,11 @@ class TestAggregation(unittest.TestCase):
         output_filepath = Path(output_path, visualisation_type).with_suffix(file_type)
         df = load_dataframe()
         assert len(df) > 0
-        shutil.copyfile(str(obj_filepath), str(output_filepath))
-        # render.to_3dscatter_3dobject(df,
-        # z_column='z1',
-        # x_column='x1',
-        # y_column='y1',
-        #                    output_filepath=output_filepath)
+        render.to_3dscatter_3dobject(df,
+                                     z_column='z1',
+                                     x_column='x1',
+                                     y_column='y1',
+                                     output_filepath=output_filepath)
         assert output_filepath.exists()
 
 
