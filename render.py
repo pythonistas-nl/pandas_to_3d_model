@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 import config
-import shapes
+import objects
 
 # https://matplotlib.org/users/installing.html#macos
 # xcode-select --install
@@ -76,9 +76,15 @@ def to_3dscatter(df, z_column, x_column, y_column, output_filepath):
 def to_3dscatter_3dobject(df, z_column, x_column, y_column, output_filepath):
     logger.info('Saving 3D Scatter Object[{}]'.format(output_filepath))
     entry_point = Path(sys.argv[0])
-    objects = list()
-    objects.append(shapes.build_unit_cube())
-    shapes.save_as_obj(objects, output_filepath, generated_by=entry_point.name, group=output_filepath.stem)
+    model = list()
+    for index, row in df.iterrows():
+        po = objects.PlacedObject(o=objects.cube(), x=row[x_column], y=row[y_column], z=row[z_column], size=0.2)
+        model.append(po)
+    # model.append(objects.PlacedObject(o=objects.cube(), x=0, y=0, z=0, size=0.2))
+    # model.append(objects.PlacedObject(o=objects.cube(), x=0, y=0, z=1, size=0.2))
+    # model.append(objects.PlacedObject(o=objects.cube(), x=1, y=0, z=0, size=0.2))
+    # model.append(objects.PlacedObject(o=objects.cube(), x=1, y=0, z=1, size=0.2))
+    objects.save_as_obj(model, output_filepath, generated_by=entry_point.name, group=output_filepath.stem)
 
 
 def to_dictarray(df, da):
