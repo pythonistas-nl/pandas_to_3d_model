@@ -17,6 +17,17 @@ logger = config.get_logger()
 
 # Constants
 source_filepath = Path('./examples/plotly-gpl-data/3d-scatter.csv')
+source_x_column = 'x1'
+source_y_column = 'y1'
+source_z_column = 'z1'
+# source_filepath = Path('./examples/cs.du.edu/leut-MDdata-5k.rect.normal.ascii.csv')
+# source_x_column = 'x1'
+# source_y_column = 'y4'
+# source_z_column = 'z1'
+# source_filepath = Path('./examples/ml.ics.uci.edu/winequality-red.csv')
+# source_x_column = 'chlorides'
+# source_y_column = 'sulphates'
+# source_z_column = 'density'
 obj_filepath = Path('./examples/cube.obj')
 output_path = './output'
 
@@ -42,9 +53,9 @@ class TestAggregation(unittest.TestCase):
         df = load_dataframe()
         assert len(df)
         render.to_logging(df,
-                          z_column='z1',
-                          x_column='x1',
-                          y_column='y1')
+                          z_column=source_z_column,
+                          x_column=source_x_column,
+                          y_column=source_y_column)
 
     def test_to_3d_scatter(self):
         visualisation_type = 'scatter_plot_3d'
@@ -54,9 +65,9 @@ class TestAggregation(unittest.TestCase):
         df = load_dataframe()
         assert len(df) > 0
         render.to_3dscatter(df,
-                            z_column='z1',
-                            x_column='x1',
-                            y_column='y1',
+                            z_column=source_z_column,
+                            x_column=source_x_column,
+                            y_column=source_y_column,
                             output_filepath=output_filepath)
         assert output_filepath.exists()
 
@@ -67,9 +78,9 @@ class TestAggregation(unittest.TestCase):
         df = load_dataframe()
         assert len(df) > 0
         render.to_3dscatter_3dobject(df,
-                                     z_column='z1',
-                                     x_column='x1',
-                                     y_column='y1',
+                                     z_column=source_z_column,
+                                     x_column=source_x_column,
+                                     y_column=source_y_column,
                                      output_filepath=output_filepath)
         assert output_filepath.exists()
 

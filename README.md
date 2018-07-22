@@ -59,6 +59,8 @@ Output
 ![scatter_plot_3d_object.png](examples/scatter_plot_3d_object.png)
 (Screen shot from Blender)
 
+5k.rect.normal.ascii from http://www.cs.du.edu/~leut/MultiDimData.html
+
 To view the .obj files
 ```shell
 $ python3 -m http.server
