@@ -56,7 +56,8 @@ Output
 ![scatter_plot_3d.png](examples/scatter_plot_3d.png)
 
 3D scatter plot to a Wavefront .obj:
-TODO: examples/scatter_plot_3d_object.obj
+![scatter_plot_3d_object.png](examples/scatter_plot_3d_object.png)
+(Screen shot from Blen)
 
 To view the .obj files
 ```shell
